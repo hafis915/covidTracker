@@ -1,0 +1,45 @@
+.cart {
+  background: #393e46;
+  border: black solid 4px;
+}
+
+.cart-cart {
+  color: white;
+}
+
+.tableContainer {
+  width: 100%;
+  display: flex;
+}
+
+.adminContainer {
+  --background: #393e46 ;
+  text-align: center;
+}
+.adminContainer h4 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #fecd1a;
+}
+
+.adminHeader {
+  --ion-background-color: #fecd1a;
+  flex-direction: row;
+}
+.adminHeader .name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.adminHeader .name .icon-back {
+  height: 30px;
+  width: 10%;
+}
+.adminHeader .name .title {
+  width: 90%;
+  text-align: center;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/*# sourceMappingURL=Admin.css.map */

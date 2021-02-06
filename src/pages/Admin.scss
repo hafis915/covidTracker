@@ -1,0 +1,49 @@
+.cart{
+    background : #393e46 ;
+    border: black solid 4px;
+
+}
+.cart-cart{
+    // background-color: beige;
+    // height: 30%;
+    color: white;
+    // display: flex;
+}
+.tableContainer{
+    width: 100%;
+    display: flex;
+
+}
+.adminContainer{
+    --background :  #393e46 ; 
+    text-align: center;
+    h4{
+        font-size: 30px;
+        font-weight: bold;
+        color:  #fecd1a;
+    }
+}
+
+.adminHeader{
+    --ion-background-color: #fecd1a;;
+    flex-direction: row;
+
+    .name {
+        display: flex;
+        // background-color: burlywood;
+        align-items: center;
+        justify-content: center;
+        .icon-back{
+
+            height: 30px;
+            width: 10%;
+        }
+        .title{
+            width: 90%;
+            text-align: center;
+            padding-left: 0;
+            margin-left: 0;            
+        }
+
+    }
+}

@@ -1,0 +1,27 @@
+.tableContainer {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tableContent {
+  width: 80%;
+  background-color: #839b97;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #fecd1a;
+}
+
+td {
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/*# sourceMappingURL=Table.css.map */
