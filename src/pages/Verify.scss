@@ -1,0 +1,38 @@
+.verify {
+    --ion-background-color: #393e46;
+  }
+
+.verivy-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // background-color: aqua;
+    margin-top: 150px;
+    h2{
+        font-weight: bold;
+        font-size: 30px;
+        margin: 0;
+        color: #fecd1a;
+    }
+    p{
+        color: #979A9A;
+    }
+    .verifyInput{
+        justify-content: center;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        --ion-background-color: #222831;
+        .inputNumber{
+            margin-left: 10px;
+            width: 100px;
+            text-align: center;
+            // --ion-border : 2px solid black ;
+        }
+    }   
+}

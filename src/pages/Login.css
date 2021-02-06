@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #ffd369;
+  color: #fecd1a;
   /* background-color: cyan; */
   margin-top: 250px;
 }
@@ -15,6 +15,7 @@
 .ionItem {
   --ion-background-color: #222831;
   border-radius: 5px;
+  margin-bottom: 5px;
 }
 
 .button {
@@ -22,7 +23,7 @@
 }
 
 .button-login {
-  --background: #ffd369;
+  --background: #fecd1a;
   --color: #222831;
 }
 
