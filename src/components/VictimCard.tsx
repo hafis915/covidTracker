@@ -5,11 +5,6 @@ import {
     IonCardHeader,
     IonCardTitle,
     IonIcon,
-    IonItemSliding,
-    IonItemOptions,
-    IonItemOption,
-    IonItem,
-    IonLabel
   } from '@ionic/react';
   import { 
       trashOutline, 
@@ -17,13 +12,12 @@ import {
       chevronForwardOutline ,
     } from 'ionicons/icons';
 
+
 const VictimCard : React.FC = () => {
+  const handleDetailInfo = () => {
+    console.log("detail")
+  }
 return(
-  <IonItemSliding>
-    <IonItemOptions side="start">
-      <IonItemOption onClick={() => console.log('favorite clicked')}>Favorite</IonItemOption>
-      <IonItemOption color="danger" onClick={() => console.log('share clicked')}>Share</IonItemOption>
-    </IonItemOptions>
     <IonCard
       className="dashBoardCard"
           >
@@ -35,28 +29,28 @@ return(
               <h4>Victim 1</h4>
             </IonCardTitle>
             <div className="action">
+
+            <IonIcon
+              icon= {pencilOutline}
+              onClick= {handleDetailInfo}
+              className= "editCard"
+              />
+
+              
               <IonIcon 
               className= "deleteCard"
               icon={trashOutline} />
 
-              <IonIcon
-              icon= {pencilOutline}
-              className= "editCard"
-              />
+
 
               <IonIcon
+              onClick= {handleDetailInfo}
               icon= {chevronForwardOutline}
               className= "nextCard"
               />
             </div>
           </IonCardHeader>
     </IonCard>
-    {/* </IonItem> */}
-
-    <IonItemOptions side="end">
-      <IonItemOption onClick={() => console.log('unread clicked')}>Unread</IonItemOption>
-    </IonItemOptions>
-  </IonItemSliding>
 )
 }
 

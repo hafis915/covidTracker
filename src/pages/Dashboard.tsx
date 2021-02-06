@@ -5,10 +5,15 @@ import {
   IonPage, 
   IonTitle, 
   IonToolbar,
+  IonRouterOutlet
 } from '@ionic/react';
 import './Dashboard.css';
 import VictimCard from '../components/VictimCard'
 import {chevronBackOutline} from "ionicons/icons"
+import { IonReactRouter } from '@ionic/react-router';
+import {Route, Redirect} from 'react-router-dom'
+
+import Detail from './Detail'
 
 const Dashboard: React.FC = () => {
   return (
@@ -51,6 +56,14 @@ const Dashboard: React.FC = () => {
           <VictimCard></VictimCard>
         </IonContent>
       </IonContent>
+      {/* <IonReactRouter>
+        <IonRouterOutlet>
+          <Route exact path="/detail" >
+            <Detail></Detail>
+          </Route>
+        </IonRouterOutlet>
+      </IonReactRouter> */}
+
     </IonPage>
   );
 };

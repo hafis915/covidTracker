@@ -14,16 +14,15 @@ import { useHistory } from 'react-router-dom'
 const Login: React.FC = () => {
   const phoneNumber = useRef<HTMLIonInputElement>(null)
   const passwordInput = useRef<HTMLIonInputElement>(null)
-
+  const history = useHistory()
 
   const handleLoginButton = () => {
     console.log("login")
     console.log(phoneNumber.current?.value)
     console.log(passwordInput.current?.value);
+    history.push('/verify')
     
   }
-
-
   const handleCancelLoginButton= () => {
     console.log('cancel');
     
@@ -31,11 +30,10 @@ const Login: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent fullscreen className="login">
+      <IonContent fullscreen className="loginContainer">
         <IonCard
         className="login-Page"
         >
-        {/* <div > */}
           <div className="contain">
             <div className="title">
               <h1>Welcome</h1>
@@ -46,14 +44,15 @@ const Login: React.FC = () => {
             <IonItem className="ionItem">
               <IonLabel  
               position="floating">Phone Number</IonLabel>
-              <IonInput></IonInput>
+              <IonInput
+              type="text"
+              ></IonInput>
             </IonItem>
             <IonItem className="ionItem">
               <IonLabel  
-              position="floating"></IonLabel>
+              position="floating">Password</IonLabel>
               <IonInput 
-              placeholder="password"
-              // ref= {passwordInput}
+              type="text"
               ></IonInput>
             </IonItem>
             <div className="button">
@@ -65,13 +64,12 @@ const Login: React.FC = () => {
             </div>
             <div className="button">
               <IonButton
-              color="danger"
+              color="success"
               expand="full"
               onClick= {handleCancelLoginButton}
-              >Cancel</IonButton>
+              >Register</IonButton>
             </div>
           </div>
-        {/* </div> */}
         </IonCard>
       </IonContent>
     </IonPage>

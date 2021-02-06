@@ -8,36 +8,35 @@
 
     .name {
         display: flex;
-        // background-color: burlywood;
         align-items: center;
         justify-content: center;
         .icon-back{
-            // height: 100%;
-            // width: 100%;
+
             height: 30px;
-            // width: 50px;
             width: 10%;
-            // background-color: brown;
         }
         .title{
             width: 90%;
             text-align: center;
             padding-left: 0;
             margin-left: 0;            
-            // background-color: blue;
         }
-
     }
 }
 .dashboardContent{
     text-align: left;
     display: flex;
     flex-direction: column;
-    --color: #fecd1a;
-
+    --color: hsl(47, 99%, 55%);
+    
     .title{
         margin-left: 20px;
         margin-bottom: 30px;
+        h4{
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
     }
 
     .dashBoardCard{
@@ -56,14 +55,17 @@
             }
             // border : 1px solid black; 
             h4{
+                text-align: center;
                 margin-top: 0;
-                margin-left: -90px;
+                font-weight: bold;
+                font-size: 20px;
+                // margin-left: -90px;
             }
             .action{
                 // margin-right: -10px;
                 // background-color: blue;
                 width: 30%;
-                // justify-content: space-between;
+                justify-content: flex-end;
                 align-items: center;
                 display: flex;
                 margin-top: 0;
@@ -87,7 +89,6 @@
 
                 }
 
-                
                 .nextCard {
                     height: 30px;
                     width: 30px;

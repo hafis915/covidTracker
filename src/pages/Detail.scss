@@ -1,0 +1,47 @@
+// .detailContainer{
+//     --ion-background-color: #393e46;
+
+// }
+
+.detailCard{
+    // margin-top: 0px;
+    margin: 0;
+    --background : #393e46  ; 
+    height: 100%;
+
+    .detailCardHeader {
+        // border: 1px solid black;
+        --background : #fecd1a ;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .profilePicture {
+        height: 100px;
+        width: 100px;
+        border: 1px black solid;
+        border-radius: 50%;
+    }
+    .itemListDetail{
+        --background : #fecd1a ;
+        margin-top: 10px;
+        border: 1px black solid;
+        border-radius: 10px;
+
+
+    }
+    .buttonDetail {
+        margin-top: 50px;
+    }
+    .button {
+        margin-top: 10px;
+        // border: 1px black solid;
+        text-align: center;
+        border-radius: 10px;
+        color: black;
+    }
+    .detailCardContent{
+        margin-top: 50px;
+        // border: black solid 1px;
+    }
+}
