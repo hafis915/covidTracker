@@ -1,0 +1,25 @@
+.login-Page{
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color : #ffd369;
+    /* background-color: cyan; */
+    margin-top: 250px;
+}
+
+.login{
+    --ion-background-color: #393e46;
+
+}
+.ionItem {
+    --ion-background-color: #222831;
+    border-radius: 5px;
+}
+.button{
+    margin-top: 20px;
+}
+.button-login{
+    --background : #ffd369;
+    --color:  #222831;
+}
