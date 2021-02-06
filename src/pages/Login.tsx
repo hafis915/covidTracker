@@ -4,7 +4,8 @@ import {
   IonInput,
   IonItem,
   IonLabel,
-  IonButton 
+  IonButton,
+  IonCard
 } from '@ionic/react';
 import './Login.css';
 import React, {useRef} from 'react'
@@ -13,14 +14,12 @@ import { useHistory } from 'react-router-dom'
 const Login: React.FC = () => {
   const phoneNumber = useRef<HTMLIonInputElement>(null)
   const passwordInput = useRef<HTMLIonInputElement>(null)
-  const history = useHistory()
 
 
   const handleLoginButton = () => {
     console.log("login")
     console.log(phoneNumber.current?.value)
     console.log(passwordInput.current?.value);
-    history.push('/verify')
     
   }
 
@@ -33,7 +32,10 @@ const Login: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen className="login">
-        <div className="login-Page">
+        <IonCard
+        className="login-Page"
+        >
+        {/* <div > */}
           <div className="contain">
             <div className="title">
               <h1>Welcome</h1>
@@ -44,10 +46,7 @@ const Login: React.FC = () => {
             <IonItem className="ionItem">
               <IonLabel  
               position="floating">Phone Number</IonLabel>
-              <IonInput
-              type= "number"
-              // ref={phoneNumber}
-              ></IonInput>
+              <IonInput></IonInput>
             </IonItem>
             <IonItem className="ionItem">
               <IonLabel  
@@ -72,8 +71,8 @@ const Login: React.FC = () => {
               >Cancel</IonButton>
             </div>
           </div>
-
-        </div>
+        {/* </div> */}
+        </IonCard>
       </IonContent>
     </IonPage>
   );

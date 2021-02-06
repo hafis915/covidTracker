@@ -1,0 +1,38 @@
+.formContainer{
+    --ion-background-color: #393e46;
+}
+.addVictimHeader{
+    --ion-background-color:#fecd1a;
+
+}
+.formContent{
+    text-align: center;
+    align-items: center;
+
+    .form{
+        h4{
+            margin-top: 30px;
+            color : #c49900;
+            font-weight: bold;
+            font-size: 30px;
+        }
+        flex-direction: column;
+        margin: auto;
+        display: flex;
+        margin-top: 5%;
+        justify-content: center;
+        width: 80%;
+        height: 90%;
+        // --ion-background-color: #222831;
+    }
+    .input{
+        --color: black ; 
+        margin-top: 20px;
+        border-radius: 10px;
+        --background : #fecd1a;
+    }
+
+    .submitButton {
+        --background : #007074; 
+    }
+}

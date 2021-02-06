@@ -1,9 +1,15 @@
 import React from "react"
 import { 
+    IonList,
     IonCard,
     IonCardHeader,
     IonCardTitle,
-    IonIcon
+    IonIcon,
+    IonItemSliding,
+    IonItemOptions,
+    IonItemOption,
+    IonItem,
+    IonLabel
   } from '@ionic/react';
   import { 
       trashOutline, 
@@ -13,8 +19,13 @@ import {
 
 const VictimCard : React.FC = () => {
 return(
+  <IonItemSliding>
+    <IonItemOptions side="start">
+      <IonItemOption onClick={() => console.log('favorite clicked')}>Favorite</IonItemOption>
+      <IonItemOption color="danger" onClick={() => console.log('share clicked')}>Share</IonItemOption>
+    </IonItemOptions>
     <IonCard
-          className="dashBoardCard"
+      className="dashBoardCard"
           >
           <IonCardHeader
           className='dashbordCardHeader'
@@ -39,8 +50,13 @@ return(
               />
             </div>
           </IonCardHeader>
-
     </IonCard>
+    {/* </IonItem> */}
+
+    <IonItemOptions side="end">
+      <IonItemOption onClick={() => console.log('unread clicked')}>Unread</IonItemOption>
+    </IonItemOptions>
+  </IonItemSliding>
 )
 }
 

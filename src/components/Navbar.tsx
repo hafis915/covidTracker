@@ -9,9 +9,8 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Dashboard from '../pages/Dashboard';
-import Tab2 from '../pages/Tab2';
-import Tab3 from '../pages/Tab3';
-import Login from '../pages/Login'
+import AddVictim from '../pages/AddVictim';
+import Profile from '../pages/Profile';
 import {Route, Redirect} from 'react-router-dom'
 import { peopleOutline, accessibilityOutline, triangle, addOutline } from 'ionicons/icons';
 
@@ -23,11 +22,11 @@ const Navbar : React.FC = () => {
             <Route exact path="/dashboard">
               <Dashboard />
             </Route>
-            <Route exact path="/tab2">
-              <Tab2 />
+            <Route exact path="/addVictim">
+              <AddVictim />
             </Route>
-            <Route path="/tab3">
-              <Tab3 />
+            <Route path="/profile">
+              <Profile />
             </Route>
             <Route exact path="/">
               <Redirect to="/dashboard" />
@@ -38,11 +37,11 @@ const Navbar : React.FC = () => {
               <IonIcon icon={accessibilityOutline} />
               <IonLabel>Victims</IonLabel>
             </IonTabButton>
-            <IonTabButton tab="tab2" href="/tab2">
+            <IonTabButton tab="tab2" href="/addVictim">
               <IonIcon icon={addOutline} />
               <IonLabel>Add Victims</IonLabel>
             </IonTabButton>
-            <IonTabButton tab="tab3" href="/tab3">
+            <IonTabButton tab="profile" href="/profile">
               <IonIcon icon={peopleOutline} />
               <IonLabel>Profile</IonLabel>
             </IonTabButton>
