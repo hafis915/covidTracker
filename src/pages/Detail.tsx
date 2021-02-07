@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import "./Detail.css"
 import { 
     IonContent, 
@@ -19,17 +19,44 @@ import {
   } from '@ionic/react';
 
 import {chevronBackOutline} from "ionicons/icons"
+import { useHistory , useParams} from 'react-router-dom'
+import { getVictimById } from '../config/firebase'
+
+const Detail : React.FC  = () => {
+    const {id} = useParams<{id:string}>()
+    const history = useHistory()
+    const [victim , setVictim] = useState<any>({})
+    const [loading, setLoading] = useState<Boolean>(true)
+
+    useEffect(() => {
+        const data = getVictimById(id)
+        data.then((res:any) =>{
+            if(res) {
+                setVictim(res.data())       
+                setLoading(false)         
+            }else{
+                console.log('ioooo');
+            }
+        })
+        .catch(err => {
+            console.log(err)
+        })
+        
+    }, [])
 
 
 
-const Detail : React.FC = () => {
-
-
+    const handleBackHome = () => {
+        console.log('detail')
+        history.push('/dashboard')
+    }
 
     const handleDeleteDetail = () => {
         console.log('Are you sure?');
         
     }
+
+    if(loading) return <h1>loading</h1>
     return (
     <IonPage>
               <IonHeader
@@ -38,11 +65,12 @@ const Detail : React.FC = () => {
         <IonToolbar>
           <div className="name">
           <IonIcon 
+          onClick= {handleBackHome}
           className="icon-back"
           icon={chevronBackOutline}></IonIcon>
           <IonTitle
           className="title"
-          >Your Victims</IonTitle>
+          >Detail</IonTitle>
           </div>
         </IonToolbar>
       </IonHeader>
@@ -61,9 +89,9 @@ const Detail : React.FC = () => {
                 className = "detailCardHeader"
                 >
                     <div className="profilePicture">
-                        <img src="https://cdn1.iconfinder.com/data/icons/random-115/24/person-512.png" alt="photo URL" />
+                        <img src={victim.photoUrl} alt="photo URL" />
                     </div>
-                    <IonCardTitle>Victim 1</IonCardTitle>
+                    <IonCardTitle>{victim.name}</IonCardTitle>
                 </IonCardHeader>
 
 
@@ -79,13 +107,13 @@ const Detail : React.FC = () => {
                     <IonItem
                     className= "itemListDetail"
                     >
-                        <IonLabel>Address : dimana mana </IonLabel>
+                        <IonLabel>Region : {victim.region} </IonLabel>
                     </IonItem>
 
                     <IonItem
                     className= "itemListDetail"
                     >
-                        <IonLabel>Gender : Laki </IonLabel>
+                        <IonLabel>Gender : {victim.gender} </IonLabel>
                     </IonItem>
                     <div className="buttonDetail">
                     <IonItem
