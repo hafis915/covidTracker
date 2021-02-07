@@ -14,12 +14,12 @@ import Profile from '../pages/Profile';
 import Admin from '../pages/Admin'
 import {Route, Redirect} from 'react-router-dom'
 import { peopleOutline, accessibilityOutline, statsChartOutline, addOutline } from 'ionicons/icons';
+import Detail from '../pages/Detail'
 
 const Navbar : React.FC = () => {
     return(
     <IonReactRouter>
         <IonTabs>
-
           <IonRouterOutlet>
             <Route exact path="/dashboard">
               <Dashboard />
@@ -33,9 +33,13 @@ const Navbar : React.FC = () => {
             <Route exact path="/admin">
               <Admin></Admin>
             </Route>
+
+            <Route exact path="/detail" component = {Detail}/>
             <Route exact path="/">
               <Redirect to="/dashboard" />
             </Route>
+
+
           </IonRouterOutlet>
 
           <IonTabBar slot="bottom">

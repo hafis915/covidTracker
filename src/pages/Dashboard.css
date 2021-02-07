@@ -12,6 +12,7 @@
   justify-content: center;
 }
 .dashboardHeader .name .icon-back {
+  cursor: pointer;
   height: 30px;
   width: 10%;
 }

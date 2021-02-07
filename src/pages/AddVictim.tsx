@@ -8,11 +8,38 @@ import {
   IonInput,
   IonLabel,
   IonList,
-  IonButton
+  IonButton,
+  IonSelect,
+  IonSelectOption
  } from '@ionic/react';
 import './AddVictim.css';
-
+import React, {useRef} from 'react'
+import { addVictim } from '../config/firebase/index'
 const AddVictim: React.FC = () => {
+
+
+  const nameInput = useRef<HTMLIonInputElement>(null)
+  const regionInput = useRef<HTMLIonInputElement>(null)
+  const photoUrlInput = useRef<HTMLIonInputElement>(null)
+  const genderInput = useRef<HTMLIonSelectElement>(null)
+
+
+  const handleSubmitVictim = () => {
+    const name = (nameInput.current?.value)
+    const region= (regionInput.current?.value)
+    const photoUrl =(photoUrlInput.current?.value)
+    const gender = (genderInput.current?.value)
+    const payload = {
+      name,
+      region,
+      photoUrl,
+      gender,
+      UserId : localStorage.getItem('userUID') 
+    }
+    addVictim(payload)
+  }
+
+
   return (
     <IonPage>
       <IonHeader
@@ -42,21 +69,33 @@ const AddVictim: React.FC = () => {
           className="input"
           >
             <IonLabel position="stacked">Name</IonLabel>
-            <IonInput value='hello'> </IonInput>
+            <IonInput
+              ref={nameInput}
+              type="text"
+              placeholder="John"
+             ></IonInput>
           </IonItem>
 
           <IonItem
           className="input"
           >
             <IonLabel position="stacked">Region</IonLabel>
-            <IonInput value='hello'> </IonInput>
+            <IonInput 
+            ref={regionInput}
+            type='text'
+            placeholder={"Makassar"}
+            /> 
           </IonItem>
 
           <IonItem
           className="input"
           >
             <IonLabel position="stacked">Photo Url </IonLabel>
-            <IonInput value='hello'> </IonInput>
+            <IonInput 
+            ref={photoUrlInput}
+            type="text"
+            placeholder='photo.jpg'
+            />
           </IonItem>
 
           <IonItem
@@ -65,10 +104,16 @@ const AddVictim: React.FC = () => {
             <IonLabel position="stacked">
               Gender
             </IonLabel>
-            <IonInput value='hello'> </IonInput>
+            <IonSelect
+            ref={genderInput}
+            >
+              <IonSelectOption value="male">Male</IonSelectOption>
+              <IonSelectOption value="female">Female</IonSelectOption>
+            </IonSelect>
           </IonItem>
 
           <IonButton
+          onClick={handleSubmitVictim}
           className= "submitButton"
           >Submit</IonButton>
 

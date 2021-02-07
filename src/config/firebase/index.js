@@ -43,3 +43,66 @@ export function logout() {
   
 }
 
+export async function addVictim(payload) {
+    const userUID = localStorage.getItem('userUID')
+
+
+    console.log('add victim di index')
+    db.collection('Victims').doc().set(payload)
+      .then(res => {
+        console.log('masuks ')
+      })
+      .catch(err => console.log(err))
+}
+
+export function deleteVictim(id) {
+  db.collection('Victims').doc(id).delete()
+    .then(res => {
+      console.log('deleted')
+    })
+    .catch('ggal')
+}
+
+export async function getUserVictim() {
+  const userUID = localStorage.getItem('userUID')
+  const victims = db.collection("Victims")
+  const userVictims = await victims.where('UserId', '==', userUID).get()
+  if(userVictims.empty) {
+    return("empty")
+  }
+  const result = []
+  userVictims.forEach( doc => {
+    const docs = {
+      id : doc.id,
+      data : doc.data()
+    }
+    result.push(docs)
+  })
+  return result
+}
+
+export const userVictimRef = db.collection('Victims')
+
+export async function getVictimById(id){
+  console.log(id, 'ini id')
+//   db.collection("Victims").doc(id).get()
+//   .then((docRef) => {
+//     // console.log(docRef)
+//     console.log(docRef.data())
+//     return docRef.data()
+//   })
+//   .catch( err => {
+//     console.log(err) 
+// })
+  try {
+  const userVictim = await db.collection("Victims").doc(id).get()
+  
+  if(userVictim.empty) {
+    return('empty')
+  }
+  console.log(userVictim,'itu')
+  return userVictim
+  } catch (error) {
+    
+  }
+}
