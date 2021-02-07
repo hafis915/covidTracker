@@ -1,10 +1,14 @@
-import { Route } from 'react-router-dom';
+import { Route,Redirect } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+
+import { GuardProvider, GuardedRoute } from 'react-router-guards'
+import { requireLogin } from './config/firebase/routerGuard'
 import Login from './pages/Login';
 import Verify from './pages/Verify'
 import Main from './pages/Main'
 import Detail from './pages/Detail'
+import Register from "./pages/Register"
 // import Admin from './pages/Admin'
 
 /* Core CSS required for Ionic components to work properly */
@@ -29,25 +33,33 @@ import './theme/variables.css';
 const App: React.FC = () => (
   <IonApp >
     <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/login">
-          <Login></Login>
-        </Route>
+      <GuardProvider guards={[requireLogin]}>
+          <IonRouterOutlet>
+            <Route 
+            exact path="/login" 
+            render = { () => {
+              if(localStorage.getItem('userUID')){
+                return <Redirect to="/" />
+              }else {
+                return <Login /> 
+              }
+            }}/>
 
-        <Route exact path="/verify">
-          <Verify></Verify>
-        </Route>
-
-        <Route exact path="/detail">
-          <Detail></Detail>
-        </Route>
-
-
-        <Route exact path="/">
-          <Main></Main>
-        </Route>
-        
-      </IonRouterOutlet>
+            <Route 
+            exact path="/register"
+            render = { () => {
+              if(localStorage.getItem('userUID')) {
+                return <Redirect to="/" />
+              }else {
+                return <Register/>
+              }
+            }} 
+            />
+            <Route exact path="/verify" component= {Verify} />
+            <Route exact path="/detail" component= {Detail} />
+            <Route exact path="/" component= {Main} />
+          </IonRouterOutlet>
+      </GuardProvider>
     </IonReactRouter>
   </IonApp>
 );

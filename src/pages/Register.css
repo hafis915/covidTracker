@@ -1,0 +1,44 @@
+.Register-Page {
+    margin-top: 0;
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    color: #ffd369;
+    margin-top: 200px;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  
+  .contain h1 {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .RegisterContainer {
+    --ion-background-color: #393e46;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ionItem {
+    --ion-background-color: #222831;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  .button {
+    margin-top: 20px;
+  }
+  
+  .button-Register {
+    --background: #ffd369;
+    --color: #222831;
+  }
+  
+  .second-title {
+    margin-top: -10px;
+  }
+  
+  /*# sourceMappingURL=Login.css.map */
+  
