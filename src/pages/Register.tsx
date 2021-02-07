@@ -27,7 +27,7 @@ const Register: React.FC = () => {
       
     }
     const handleCancelRegisterButton= () => {
-      console.log('cancel');
+      history.push('/login')
       
     }
   

@@ -15,8 +15,22 @@ import {
  } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Profile.css';
-
+import {logout} from '../config/firebase/index'
+import { useHistory,Redirect } from 'react-router-dom'
 const Profile: React.FC = () => {
+  const history = useHistory()
+
+
+  const handleLogout = async () =>{
+    try {
+      const logoutUser = await logout()
+      console.log(logoutUser)
+      localStorage.removeItem('userUID')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <IonPage>
       <IonHeader
@@ -68,6 +82,15 @@ const Profile: React.FC = () => {
               <IonItem>
                  <IonLabel>Pokémon Yellow</IonLabel>
               </IonItem>
+
+              <IonItem
+              button 
+              color= 'danger'
+              onClick= {handleLogout}
+              >
+                 <IonLabel>logout</IonLabel>
+              </IonItem>
+
               </IonList>
             </IonCardContent>
           </IonCard>

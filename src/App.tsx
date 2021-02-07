@@ -55,9 +55,9 @@ const App: React.FC = () => (
               }
             }} 
             />
-            <Route exact path="/verify" component= {Verify} />
-            <Route exact path="/detail" component= {Detail} />
-            <Route exact path="/" component= {Main} />
+            <GuardedRoute exact path="/verify" component= {Verify} />
+            <GuardedRoute exact path="/detail" component= {Detail} />
+            <GuardedRoute exact path="/" component= {Main} />
           </IonRouterOutlet>
       </GuardProvider>
     </IonReactRouter>

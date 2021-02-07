@@ -10,17 +10,31 @@ import {
 import './Login.css';
 import React, {useRef} from 'react'
 import { useHistory } from 'react-router-dom'
+import { login } from '../config/firebase'
+import { promises } from 'dns';
 
 const Login: React.FC = () => {
   const emailInput = useRef<HTMLIonInputElement>(null)
   const passwordInput = useRef<HTMLIonInputElement>(null)
   const history = useHistory()
 
-  const handleLoginButton = () => {
+  const  handleLoginButton = async () => {
     console.log("login")
     console.log(emailInput.current?.value)
     console.log(passwordInput.current?.value);
-    history.push('/')
+    const email = emailInput.current?.value
+    const password = passwordInput.current?.value
+    try {
+      const user:any = await login(email,password)
+      if(user){
+        console.log('di login', user)
+        localStorage.setItem('userUID', user.user.uid)
+        history.push('/')
+      }
+    } catch (error) {
+      console.log(error)
+    }
+
     
   }
   const handleRegisterButton= () => {

@@ -28,18 +28,18 @@ export function registerNewUser(email, password) {
   })
 }
 
-function login(email,password) {
-firebase.auth().signInWithEmailAndPassword(email, password)
-  .then((user) => {
-    console.log(user)
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  });
+export async function login(email,password) {
+  try {
+    const user =firebase.auth().signInWithEmailAndPassword(email, password)
+    return user
+  } catch (error) {
+    console.log(error)
+  }
+
 }
 
-// module.exports = {
-//   registerNewUser,
-//   login
-// }
+export function logout() {
+  firebase.auth().signOut()
+  
+}
+
