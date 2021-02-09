@@ -32,7 +32,6 @@ const Dashboard: React.FC = () => {
     .catch(err => {
       console.log(err);
     })
-    return
   }, [newData])
 
 
@@ -50,7 +49,6 @@ const Dashboard: React.FC = () => {
           setNewData(newVictims)
         }
       })
-      return
   }, [])
 
   if(loading){
