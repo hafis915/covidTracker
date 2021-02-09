@@ -48,7 +48,7 @@ const Detail : React.FC  = () => {
 
     const handleBackHome = () => {
         console.log('detail')
-        history.push('/dashboard')
+        history.push('/')
     }
 
     const handleDeleteDetail = () => {
